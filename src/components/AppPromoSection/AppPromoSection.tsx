@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const AppPromoSection: React.FC = () => {
   return (
@@ -26,9 +26,20 @@ const AppPromoSection: React.FC = () => {
           <h4 className="text-blue-500 uppercase mb-2">Lorem</h4>
           <h2 className="text-3xl font-bold mb-4">Lorem Ipsum text</h2>
           <p className="text-gray-600 mb-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived
+            not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum
+            passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
           </p>
-          <a href="#" className="text-blue-500 font-semibold">Learn More</a>
+
+          <a href="#" className="text-blue-500 font-semibold">
+            Learn More
+          </a>
 
           {/* App Store Buttons */}
           <div className="flex justify-center md:justify-start mt-6">
@@ -40,7 +51,6 @@ const AppPromoSection: React.FC = () => {
                 height={100}
               />
             </a>
-          
           </div>
         </div>
       </div>

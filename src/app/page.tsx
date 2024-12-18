@@ -1,6 +1,5 @@
 import AppPromoSection from '@/components/AppPromoSection/AppPromoSection';
 import FeatureSection from '@/components/Features/Feature';
-import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SecuritySection from '@/components/SecuritySection/SecuritySection';
 import Testimonials from '@/components/Testimonials/Testimonials';
