@@ -1,0 +1,77 @@
+@import '@/styles/variables';
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: linear-gradient(90.07deg, #F4F6FB 0.05%, #F2F3FD 99.93%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba(47, 123, 211, 0.3) 0%,
+      rgba(255, 206, 209, 0.3) 50.48%,
+      rgba(255, 218, 191, 0.3) 100%
+    );
+  }
+}
+
+.headerInner {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navLink {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+
+  &:hover {
+    color: #0066FF;
+  }
+}
+
+.connectButton {
+  background: #0066FF;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #0052CC;
+  }
+}
