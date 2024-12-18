@@ -15,9 +15,9 @@ const SecuritySection: React.FC = () => {
               height={500}
               className="rounded-lg"
             />
-            <div className="absolute h-[120px] bottom-0 right-4 bg-blue-500 text-white py-6 px-4 w-[150px] rounded-lg shadow-md flex flex-col items-start">
-              <div className="flex items-center">
-                <span className="text-3xl font-semibold mr-2">68%</span>
+            <div className="absolute h-[120px]  bottom-0 right-4 bg-blue-500 text-white px-4 py-4 w-[160px] rounded-lg shadow-md flex flex-col items-start">
+              <div className="flex items-center justify-between">
+                <span className="text-4xl font-albayan mr-2">68%</span>
                 <div className="bg-white rounded-full p-1">
                   <Image
                     src="/images/Group.svg" // Path to your custom arrow image
@@ -28,7 +28,7 @@ const SecuritySection: React.FC = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm">Extra growth for you.</span>
+                <span className="text-base">Extra growth for you.</span>
               </div>
             </div>
           </div>

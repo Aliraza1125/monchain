@@ -12,7 +12,10 @@ module.exports = {
         secondary: '#FF4B91',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
+        ara: ['var(--font-ara-al-bayan)'],
+        albayan: ['var(--font-al-bayan)'],
       },
     },
   },

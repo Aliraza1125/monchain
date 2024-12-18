@@ -1,17 +1,15 @@
-"use client";
-
+'use client'
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-// Dynamically import react-slick
 const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
-const FeatureSection: React.FC = () => {
+const FeatureSection = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3.5,
@@ -28,6 +26,7 @@ const FeatureSection: React.FC = () => {
     ],
   };
 
+  
   const features = [
     {
       icon: '/images/wallet-icon.png',
@@ -57,7 +56,7 @@ const FeatureSection: React.FC = () => {
         <Slider {...settings}>
           {features.map((feature, index) => (
             <div key={index} className="p-2">
-              <div className="bg-white p-6 border rounded-3xl flex flex-col gap-4 shadow-lg text-center h-[300px] w-[250px]">
+              <div className="bg-white p-6 border rounded-3xl flex flex-col gap-4 shadow-lg text-center h-[320px] w-[300px]">
                 <Image
                   src={feature.icon}
                   alt={feature.title}

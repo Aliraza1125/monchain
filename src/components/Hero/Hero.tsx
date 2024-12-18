@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-5 py-8 flex flex-col items-center text-center">
-        <h1 className="text-[56px] font-bold leading-tight text-black tracking-[-0.02em]">
+        <h1 className="text-[56px] font-albayan font-semibold leading-tight text-black tracking-[-0.02em]">
           AI-Powered Security
           <span className="block  text-[36px]"> <span className="font-light">for Your</span> Crypto Assets</span>
         </h1>
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
           <input
             type="text"
             placeholder="Enter wallet address to evaluate"
-            className={`w-full h-[48px] pl-[50px] pr-[60px] ${isDropdownOpen ? 'rounded-t-xl' : 'rounded-xl'} border border-gray-200 bg-white text-base text-gray-900 placeholder-gray-400 transition-all duration-200 ease-in-out focus:outline-none focus:border-blue-500 focus:shadow-[0_2px_8px_rgba(59,130,246,0.1)]`}
+            className={`w-full h-[40px] pl-[50px] pr-[60px] ${isDropdownOpen ? 'rounded-t-xl' : 'rounded-xl'} border border-gray-200 bg-white text-base text-gray-900 placeholder-gray-400 transition-all duration-200 ease-in-out focus:outline-none focus:border-blue-500 focus:shadow-[0_2px_8px_rgba(59,130,246,0.1)]`}
             onClick={handleInputClick}
           />
 
