@@ -6,8 +6,7 @@ import Testimonials from '@/components/Testimonials/Testimonials';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      
+    <main >
       <Hero />
       <AppPromoSection />
       <FeatureSection/>

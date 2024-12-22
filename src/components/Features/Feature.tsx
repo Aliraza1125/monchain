@@ -9,7 +9,7 @@ const Slider = dynamic(() => import('react-slick'), { ssr: false });
 
 const FeatureSection = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 3.5,

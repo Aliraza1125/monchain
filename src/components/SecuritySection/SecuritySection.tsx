@@ -20,9 +20,9 @@ const SecuritySection: React.FC = () => {
                 <span className="text-4xl font-albayan mr-2">68%</span>
                 <div className="bg-white rounded-full p-1">
                   <Image
-                    src="/images/Group.svg" // Path to your custom arrow image
+                    src="/images/Group.svg" 
                     alt="Arrow"
-                    width={12} // Adjust size as needed
+                    width={12} 
                     height={12}
                   />
                 </div>
