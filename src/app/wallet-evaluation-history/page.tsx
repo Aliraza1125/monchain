@@ -49,23 +49,57 @@ export default function WalletEvaluationHistory() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00B34D]"></div>
+      <div className="relative min-h-screen">
+        <div 
+          className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+          style={{
+            backgroundImage: `url('/bg-3.png')`,
+            backgroundSize: '100% auto',
+            backgroundPosition: 'top center',
+            zIndex: -1,
+          }}
+        />
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00B34D]"></div>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex items-center justify-center min-h-screen text-red-500">
-        {error}
+      <div className="relative min-h-screen">
+        <div 
+          className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+          style={{
+            backgroundImage: `url('/bg-3.png')`,
+            backgroundSize: '100% auto',
+            backgroundPosition: 'top center',
+            zIndex: -1,
+          }}
+        />
+        <div className="flex items-center justify-center min-h-screen text-red-500">
+          {error}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD] min-h-screen">
-      <div className="max-w-[1440px] mx-auto px-12 py-8">
+    <div className="relative min-h-screen">
+      {/* Background Image */}
+      <div 
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+        style={{
+          backgroundImage: `url('/bg-3.png')`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'top center',
+          zIndex: -1,
+        }}
+      />
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-12 py-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm mb-8">
           <Link href="/" className="text-[#666666] hover:text-[#0066FF]">

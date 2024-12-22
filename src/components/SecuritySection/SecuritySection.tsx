@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const SecuritySection: React.FC = () => {
   return (
-    <section className="bg-[#F5F8FF] py-16">
+    <section className=" py-16">
       <div className="max-w-[1200px] mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Image Section */}
         <div className="relative">

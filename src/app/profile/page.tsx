@@ -67,7 +67,17 @@ export default function Profile() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD] min-h-screen py-4">
+    <div className="relative min-h-screen">
+    {/* Background Image */}
+    <div 
+      className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+      style={{
+        backgroundImage: `url('/bg-4.png')`,
+        backgroundSize: '100% auto',
+        backgroundPosition: 'top center',
+        zIndex: -1,
+      }}
+    />
       <div className="max-w-[1200px] mx-auto px-8 py-4">
         <div className="flex items-center gap-2 text-sm mb-8">
           <Link href="/" className="text-[#666666] hover:text-[#0066FF]">
@@ -348,5 +358,6 @@ export default function Profile() {
         </div>
       </div>
     </div>
+  
   );
 }

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD]">
+    <header className="">
       <div className="h-[72px] flex items-center justify-between px-12 py-2 max-w-[1440px] mx-auto">
         <Link href="/" className="text-xl font-semibold text-[#1A1A1A] no-underline">
           Monchain

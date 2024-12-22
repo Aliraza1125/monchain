@@ -13,6 +13,17 @@ export default function PrivacyPolicyPage() {
 
   return (
     <>
+       <div className="relative min-h-screen">
+      {/* Background Image */}
+      <div 
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+        style={{
+          backgroundImage: `url('/bg-11.png')`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'top center',
+          zIndex: -1,
+        }}
+      />
     <div className="max-w-[1200px] mx-auto px-8 py-12">
       {/* Header Section */}
       <div className="bg-[#2F7BD3] text-white py-8 rounded-3xl">
@@ -46,7 +57,7 @@ export default function PrivacyPolicyPage() {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 bg-white rounded-2xl  shadow-sm">
+          <main className="flex-1 bg-white rounded-2xl p-6 shadow-sm">
             <section id="overview" className="mb-12">
               <h2 className="text-xl font-semibold mb-4 text-[#1A1A1A]">Overview</h2>
               <p className="text-[#666666] mb-6 leading-relaxed">
@@ -80,6 +91,7 @@ export default function PrivacyPolicyPage() {
             ))}
           </main>
         </div>
+      </div>
       </div>
       </div>
     </>

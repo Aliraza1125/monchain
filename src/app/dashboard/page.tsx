@@ -46,7 +46,17 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD] min-h-screen px-6">
+    <div className="relative min-h-screen">
+      {/* Background Image */}
+      <div 
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+        style={{
+          backgroundImage: `url('/bg-12.png')`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'top center',
+          zIndex: -1,
+        }}
+      />
       <div className="max-w-[1200px] mx-auto px-8 py-8">
         <h1 className="text-lg font-medium text-[#1A1A1A] mb-6">Dashboard</h1>
         

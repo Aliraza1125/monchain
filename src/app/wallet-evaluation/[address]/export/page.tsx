@@ -36,7 +36,17 @@ export default function Page() {
  };
 
  return (
-   <div className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD] min-h-screen">
+  <div className="relative min-h-screen">
+  {/* Background Image */}
+  <div 
+    className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+    style={{
+      backgroundImage: `url('/bg-11.png')`,
+      backgroundSize: '100% auto',
+      backgroundPosition: 'top center',
+      zIndex: -1,
+    }}
+  />
      <div className="max-w-[1200px] mx-auto px-8 py-12">
        {/* Breadcrumb */}
        <div className="flex items-center gap-2 text-sm mb-8">

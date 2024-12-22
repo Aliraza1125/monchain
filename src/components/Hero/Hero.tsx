@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-screen bg-gradient-to-b from-white to-[#F5F8FF]">
+    <section className="relative overflow-hidden min-h-screen ">
       {/* Wave Pattern Background */}
       <div className="absolute top-[40%] w-full h-[100%] overflow-hidden">
         <Image 

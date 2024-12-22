@@ -51,7 +51,7 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section className="bg-[#F5F8FF] py-16">
+    <section className=" py-16">
       <div className="max-w-[1200px] mx-auto px-5">
         <Slider {...settings}>
           {features.map((feature, index) => (
