@@ -1,7 +1,6 @@
-// src/utils/api.ts
 import axios from 'axios';
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const baseURL = '/api'; // Use relative path for internal API calls
 
 export const api = axios.create({
   baseURL,
@@ -9,9 +8,10 @@ export const api = axios.create({
 
 export const getWallets = async () => {
   try {
-    const response = await api.get('/api/wallets');
+    const response = await api.get('/wallets');
     return response.data;
   } catch (error) {
-    throw error;
+    console.error('Error fetching wallets:', error);
+    throw new Error('Failed to fetch wallets');
   }
 };
