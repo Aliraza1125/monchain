@@ -12,7 +12,7 @@ export default function Home() {
       <div 
         className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
-          backgroundImage: `url('/bg-waves.png')`, // different background for landing
+          backgroundImage: `url('/bg-11.png')`, // different background for landing
           backgroundSize: '100% auto',
           backgroundPosition: 'top center',
           zIndex: -1,
