@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
           />
 
           {isDropdownOpen && (
-            <div className="absolute top-full left-4 right-4 sm:left-6 sm:right-6 lg:left-0 lg:right-0 bg-white border border-gray-200 rounded-b-lg shadow-lg">
+            <div className="absolute top-full left-4 right-4 sm:left-6 sm:right-6 lg:left-0 lg:right-0 bg-white border border-gray-200 rounded-b-lg shadow-lg z-999">
               <div className="p-4">
                 <button
                   type="button"
