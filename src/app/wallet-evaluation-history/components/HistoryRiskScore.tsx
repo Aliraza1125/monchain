@@ -1,4 +1,3 @@
-// components/HistoryRiskScore.tsx
 import React from 'react';
 
 interface HistoryRiskScoreProps {
@@ -12,34 +11,31 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   size = 'md',
   showLabel = true,
 }) => {
-  // Dynamic size configurations
+  // Dynamic size configurations with responsive values
   const sizeConfig = {
     sm: {
-      width: 24,
-      height: 24,
+      dimensions: 'w-20 sm:w-24 h-20 sm:h-24',
       viewBox: 96,
       radius: 44,
       strokeWidth: 6,
-      fontSize: 'text-2xl',
-      labelSize: 'text-xs'
+      fontSize: 'text-xl sm:text-2xl',
+      labelSize: 'text-[10px] sm:text-xs'
     },
     md: {
-      width: 32,
-      height: 32,
+      dimensions: 'w-24 sm:w-32 h-24 sm:h-32',
       viewBox: 112,
       radius: 50,
       strokeWidth: 8,
-      fontSize: 'text-4xl',
-      labelSize: 'text-sm'
+      fontSize: 'text-3xl sm:text-4xl',
+      labelSize: 'text-xs sm:text-sm'
     },
     lg: {
-      width: 40,
-      height: 40,
+      dimensions: 'w-32 sm:w-40 h-32 sm:h-40',
       viewBox: 128,
       radius: 56,
       strokeWidth: 10,
-      fontSize: 'text-5xl',
-      labelSize: 'text-base'
+      fontSize: 'text-4xl sm:text-5xl',
+      labelSize: 'text-sm sm:text-base'
     }
   };
 
@@ -64,7 +60,7 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   return (
     <div className="relative inline-flex">
       <svg 
-        className={`w-${config.width} h-${config.height} transform -rotate-90`} 
+        className={`${config.dimensions} transform -rotate-90`}
         viewBox={`0 0 ${config.viewBox} ${config.viewBox}`}
       >
         {/* Background circle */}
@@ -72,25 +68,27 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
           cx={config.viewBox / 2}
           cy={config.viewBox / 2}
           r={config.radius}
-          className={`fill-none stroke-[#E6F7F1] stroke-[${config.strokeWidth}]`}
+          strokeWidth={config.strokeWidth}
+          className="fill-none stroke-[#E6F7F1]"
         />
         {/* Progress circle */}
         <circle
           cx={config.viewBox / 2}
           cy={config.viewBox / 2}
           r={config.radius}
-          className={`fill-none ${getScoreColor()} stroke-[${config.strokeWidth}]`}
+          strokeWidth={config.strokeWidth}
+          className={`fill-none ${getScoreColor()} transition-all duration-300`}
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center rotate-90">
-        <span className={`${config.fontSize} font-semibold ${getTextColor()}`}>
+        <span className={`${config.fontSize} font-semibold ${getTextColor()} transition-colors duration-300`}>
           {score}
         </span>
         {showLabel && (
-          <span className={`${config.labelSize} text-[#666666] mt-1`}>
+          <span className={`${config.labelSize} text-[#666666] mt-0.5 sm:mt-1`}>
             Overall Score
           </span>
         )}
@@ -99,18 +97,4 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   );
 };
 
-// // Default props
-// HistoryRiskScore.defaultProps = {
-//   size: 'md',
-//   showLabel: true
-// };
-
-// Example usage types
-type ScoreConfig = {
-  score: number;
-  size?: 'sm' | 'md' | 'lg';
-  showLabel?: boolean;
-};
-
-// Export types for external use
-export type { HistoryRiskScoreProps, ScoreConfig };
+export type { HistoryRiskScoreProps };

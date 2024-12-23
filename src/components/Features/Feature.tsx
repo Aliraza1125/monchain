@@ -13,20 +13,39 @@ const FeatureSection = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 3.5,
-    slidesToScroll: 3,
+    slidesToScroll: 1,
     arrows: false,
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: false,
+        },
+      },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1.5,
           slidesToScroll: 1,
+          infinite: false,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.2,
+          slidesToScroll: 1,
+          infinite: false,
+          dots: false,
         },
       },
     ],
   };
 
-  
   const features = [
     {
       icon: '/images/wallet-icon.png',
@@ -51,21 +70,29 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section className=" py-16">
-      <div className="max-w-[1200px] mx-auto px-5">
+    <section className="py-8 sm:py-12 lg:py-16">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-5">
         <Slider {...settings}>
           {features.map((feature, index) => (
-            <div key={index} className="p-2">
-              <div className="bg-white p-6 border rounded-3xl flex flex-col gap-4 shadow-lg text-center h-[320px] w-[300px]">
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={64}
-                  height={64}
-                  className="mx-auto mb-4"
-                />
-                <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
+            <div key={index} className="p-2 sm:p-3">
+              <div className="bg-white p-4 sm:p-6 border rounded-3xl flex flex-col gap-3 sm:gap-4 shadow-lg text-center h-[280px] sm:h-[300px] lg:h-[320px] w-[260px] sm:w-[280px] lg:w-[300px] mx-auto">
+                <div className="flex-shrink-0">
+                  <Image
+                    src={feature.icon}
+                    alt={feature.title}
+                    width={64}
+                    height={64}
+                    className="mx-auto mb-2 sm:mb-4 w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16"
+                  />
+                </div>
+                
+                <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 line-clamp-2">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-sm sm:text-base text-gray-600 line-clamp-4">
+                  {feature.description}
+                </p>
               </div>
             </div>
           ))}

@@ -65,21 +65,22 @@ export default function Profile() {
   const handleSaveChanges = () => {
     console.log("Profile data:", profileData);
   };
-
   return (
     <div className="relative min-h-screen">
-    {/* Background Image */}
-    <div 
-      className="fixed top-0 left-0 w-full h-full bg-no-repeat"
-      style={{
-        backgroundImage: `url('/bg-4.png')`,
-        backgroundSize: '100% auto',
-        backgroundPosition: 'top center',
-        zIndex: -1,
-      }}
-    />
-      <div className="max-w-[1200px] mx-auto px-8 py-4">
-        <div className="flex items-center gap-2 text-sm mb-8">
+      {/* Background Image */}
+      <div 
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat"
+        style={{
+          backgroundImage: `url('/bg-4.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          opacity: '0.8',
+          zIndex: -1,
+        }}
+      />
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-8 overflow-x-auto whitespace-nowrap pb-2">
           <Link href="/" className="text-[#666666] hover:text-[#0066FF]">
             Home
           </Link>
@@ -88,11 +89,11 @@ export default function Profile() {
         </div>
 
         {/* Profile Cards */}
-        <div className="space-y-8">
+        <div className="space-y-4 sm:space-y-8">
           {/* Profile Header */}
-          <div className="bg-white rounded-xl p-4 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="relative w-24 h-24">
+          <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 sm:justify-between">
+            <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24">
                 <Image
                   src="/images/profile-avatar.png"
                   alt="Profile"
@@ -103,29 +104,25 @@ export default function Profile() {
               <div>
                 <h2 className="font-medium text-[#1A1A1A]">Alex Mohamed</h2>
                 <p className="text-sm text-[#666666]">Lorem ipsum</p>
-                <p className="text-xs text-[#666666]">
-                  Last sync: 01 Nov 2024, 3:12 AM UTC
-                </p>
+                <p className="text-xs text-[#666666]">Last sync: 01 Nov 2024, 3:12 AM UTC</p>
               </div>
             </div>
-            <div className="flex gap-4">
-              <button className="px-4 py-2.5 text-sm text-white bg-[#2F7BD3] hover:bg-[#0052CC] rounded-full transition-colors">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+              <button className="px-4 py-2.5 text-sm text-white bg-[#2F7BD3] hover:bg-[#0052CC] rounded-full transition-colors w-full sm:w-auto">
                 Upload New Photo
               </button>
-              <button className="px-6 py-2 text-sm text-[#2F7BD3] hover:bg-red-50 rounded-full border transition-colors">
+              <button className="px-6 py-2 text-sm text-[#2F7BD3] hover:bg-red-50 rounded-full border transition-colors w-full sm:w-auto">
                 Delete
               </button>
             </div>
           </div>
 
           {/* Profile Form */}
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white rounded-xl p-4 sm:p-6">
             {/* Name Fields */}
-            <div className="grid grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">
-                  First Name
-                </label>
+                <label className="block text-sm text-[#666666] mb-2 ml-4">First Name</label>
                 <input
                   type="text"
                   name="firstName"
@@ -136,9 +133,7 @@ export default function Profile() {
                 />
               </div>
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">
-                  Last Name
-                </label>
+                <label className="block text-sm text-[#666666] mb-2 ml-4">Last Name</label>
                 <input
                   type="text"
                   name="lastName"
@@ -152,9 +147,7 @@ export default function Profile() {
 
             {/* Username Field */}
             <div className="mb-6">
-              <label className="block text-sm text-[#666666] mb-2 ml-4">
-                User Name
-              </label>
+              <label className="block text-sm text-[#666666] mb-2 ml-4">User Name</label>
               <input
                 type="text"
                 name="userName"
@@ -166,18 +159,16 @@ export default function Profile() {
             </div>
 
             {/* Email and Phone Fields */}
-            <div className="grid grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">
-                  Email Address
-                </label>
+                <label className="block text-sm text-[#666666] mb-2 ml-4">Email Address</label>
                 <div className="relative">
                   <Image
                     src="/images/email-icon.png"
                     width={20}
                     height={20}
                     alt="Email"
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50 w-4 h-4 sm:w-5 sm:h-5"
                   />
                   <input
                     type="email"
@@ -189,16 +180,14 @@ export default function Profile() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">
-                  Phone Number
-                </label>
+                <label className="block text-sm text-[#666666] mb-2 ml-4">Phone Number</label>
                 <div className="relative">
                   <Image
                     src="/images/phone-icon.png"
                     width={20}
                     height={20}
                     alt="Phone"
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 opacity-50 w-4 h-4 sm:w-5 sm:h-5"
                   />
                   <input
                     type="tel"
@@ -213,25 +202,22 @@ export default function Profile() {
 
             {/* Social Accounts */}
             <div className="mb-6">
-              <label className="block text-base text-[#2c2020] mb-4">
-                Social Accounts
-              </label>
-              <div className="space-y-6">
-                <div className="flex flex-wrap gap-3">
+              <label className="block text-base text-[#2c2020] mb-4">Social Accounts</label>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {socialAccounts.map((account) => (
                     <div
                       key={account.platform}
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl border bg-[#F4F6FB] cursor-pointer hover:bg-[#F8F9FB] transition-colors"
+                      className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl border bg-[#F4F6FB] cursor-pointer hover:bg-[#F8F9FB] transition-colors"
                     >
                       <Image
                         src={account.icon}
                         width={20}
                         height={20}
                         alt={account.platform}
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                       />
-                      <span className="text-base text-[#666666]">
-                        {account.username}
-                      </span>
+                      <span className="text-sm sm:text-base text-[#666666]">{account.username}</span>
                     </div>
                   ))}
                 </div>
@@ -245,23 +231,21 @@ export default function Profile() {
           </div>
 
           {/* Change Password Section */}
-          <div className="bg-white rounded-xl px-8 py-1">
+          <div className="bg-white rounded-xl px-4 sm:px-8 py-1">
             {/* Password Change Header */}
             <div
               className="p-4 flex items-center justify-between cursor-pointer"
               onClick={() => setIsPasswordChangeOpen(!isPasswordChangeOpen)}
             >
               <div>
-                <h3 className="text-lg font-medium text-[#1A1A1A]">
-                  Change Password
-                </h3>
+                <h3 className="text-base sm:text-lg font-medium text-[#1A1A1A]">Change Password</h3>
               </div>
               <Image
                 src="/images/downarrow.svg"
                 width={16}
                 height={16}
                 alt="Toggle"
-                className={`transition-transform duration-200 ${
+                className={`transition-transform duration-200 w-3 h-3 sm:w-4 sm:h-4 ${
                   isPasswordChangeOpen ? "rotate-180" : ""
                 }`}
               />
@@ -269,11 +253,11 @@ export default function Profile() {
 
             {/* Password Change Form */}
             {isPasswordChangeOpen && (
-              <div className="px-4 py-6 space-y-6 border-t border-[#E5E5E5]">
-                <div className="grid grid-cols-2 gap-6">
+              <div className="px-4 py-6 space-y-4 sm:space-y-6 border-t border-[#E5E5E5]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {/* Current Password */}
                   <div>
-                    <label className="block text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                    <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
                       Current Password
                     </label>
                     <div className="relative">
@@ -282,7 +266,7 @@ export default function Profile() {
                         width={20}
                         height={20}
                         alt="Password"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50 w-4 h-4 sm:w-5 sm:h-5"
                       />
                       <input
                         type="password"
@@ -296,7 +280,7 @@ export default function Profile() {
 
                   {/* New Password */}
                   <div>
-                    <label className="block text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                    <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
                       New Password
                     </label>
                     <div className="relative">
@@ -305,7 +289,7 @@ export default function Profile() {
                         width={20}
                         height={20}
                         alt="Password"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50 w-4 h-4 sm:w-5 sm:h-5"
                       />
                       <input
                         type="password"
@@ -320,7 +304,7 @@ export default function Profile() {
 
                 {/* Confirm New Password */}
                 <div>
-                  <label className="block text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                  <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
                     Confirm New Password
                   </label>
                   <div className="relative">
@@ -329,7 +313,7 @@ export default function Profile() {
                       width={20}
                       height={20}
                       alt="Password"
-                      className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 opacity-50 w-4 h-4 sm:w-5 sm:h-5"
                     />
                     <input
                       type="password"
@@ -343,14 +327,15 @@ export default function Profile() {
               </div>
             )}
           </div>
+
           {/* Action Buttons */}
-          <div className="flex justify-end gap-8 ">
-            <button className="px-6 py-2.5 text-[#0066FF] hover:bg-[#F4F6FB] rounded-full border border-[#0052CC] transition-colors">
+          <div className="flex flex-col sm:flex-row sm:justify-end gap-3 sm:gap-8">
+            <button className="px-6 py-2.5 text-[#0066FF] hover:bg-[#F4F6FB] rounded-full border border-[#0052CC] transition-colors w-full sm:w-auto order-2 sm:order-1">
               Cancel
             </button>
             <button
               onClick={handleSaveChanges}
-              className="px-8 py-2.5 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors"
+              className="px-8 py-2.5 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors w-full sm:w-auto order-1 sm:order-2"
             >
               Save Changes
             </button>
@@ -358,6 +343,5 @@ export default function Profile() {
         </div>
       </div>
     </div>
-  
   );
 }

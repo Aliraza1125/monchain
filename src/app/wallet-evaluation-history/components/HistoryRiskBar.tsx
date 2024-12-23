@@ -1,11 +1,10 @@
-// components/HistoryRiskBar.tsx
 import React from 'react';
 
 interface HistoryRiskBarProps {
   title: string;
   value: string;
   percentage: number;
-  color: string; // Allow any string value
+  color: string;
 }
 
 export const HistoryRiskBar: React.FC<HistoryRiskBarProps> = ({ 
@@ -27,12 +26,12 @@ export const HistoryRiskBar: React.FC<HistoryRiskBarProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-[#666666]">{title}</span>
-        <span className={getTextColor()}>{value}</span>
+    <div className="flex flex-col gap-1 sm:gap-1.5">
+      <div className="flex items-center justify-between text-xs sm:text-sm">
+        <span className="text-[#666666] truncate mr-2">{title}</span>
+        <span className={`${getTextColor()} flex-shrink-0`}>{value}</span>
       </div>
-      <div className="relative h-2 bg-[#F4F4F4] rounded-full overflow-hidden">
+      <div className="relative h-1.5 sm:h-2 bg-[#F4F4F4] rounded-full overflow-hidden">
         <div 
           className={`absolute top-0 left-0 h-full ${color} rounded-full transition-all duration-300 ease-in-out`}
           style={{ 
@@ -44,12 +43,6 @@ export const HistoryRiskBar: React.FC<HistoryRiskBarProps> = ({
     </div>
   );
 };
-
-// // Add PropTypes for better development experience
-// HistoryRiskBar.defaultProps = {
-//   percentage: 0,
-//   color: 'bg-[#00B34D]'
-// };
 
 // Example usage types
 type RiskBarData = {

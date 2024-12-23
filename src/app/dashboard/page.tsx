@@ -1,4 +1,3 @@
-// app/dashboard/page.tsx
 'use client';
 import React from 'react';
 import { TotalAssets } from './components/TotalAssets';
@@ -52,26 +51,30 @@ export default function Dashboard() {
         className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
           backgroundImage: `url('/bg-12.png')`,
-          backgroundSize: '100% auto',
-          backgroundPosition: 'top center',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
           zIndex: -1,
         }}
       />
-      <div className="max-w-[1200px] mx-auto px-8 py-8">
-        <h1 className="text-lg font-medium text-[#1A1A1A] mb-6">Dashboard</h1>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <h1 className="text-lg sm:text-xl font-medium text-[#1A1A1A] mb-4 sm:mb-6">Dashboard</h1>
         
-        <div className="grid grid-cols-[40%_60%] gap-6 mb-8">
-          <TotalAssets />
-          <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-6 mb-6 sm:mb-8">
+          <div className="order-2 lg:order-1">
+            <TotalAssets />
+          </div>
+          <div className="order-1 lg:order-2 grid grid-cols-2 md:grid-cols-3 gap-4">
             {stats.map((stat, index) => (
               <StatCards key={index} {...stat} />
             ))}
           </div>
         </div>
 
-        <WalletManagement />
+        <div className="mb-6 sm:mb-8">
+          <WalletManagement />
+        </div>
         
-        {/* New Insights Section */}
+        {/* Insights Section */}
         <InsightsSection />
       </div>
     </div>
