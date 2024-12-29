@@ -83,8 +83,8 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
         tablet: 11,
         desktop: 12
       },
-      textSize: 'text-4xl sm:text-4xl md:text-5xl',
-      labelSize: 'text-xs sm:text-sm'
+      textSize: 'text-4xl sm:text-4xl md:text-[50px]',
+      labelSize: 'text-xs sm:text-[13px]'
     }
   };
 
@@ -105,17 +105,20 @@ export const CircleProgress: React.FC<CircleProgressProps> = ({
   const circumference = 2 * Math.PI * config.radius;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
-  // Color based on percentage
+  // Updated color thresholds and colors based on new scheme
+  // 00-49: High Risk (#FF4843)
+  // 49-65: Medium Risk (#FFCD43)
+  // 65-100: Low Risk (#00B34D)
   const getGradientColors = () => {
-    if (percentage >= 70) return ['#00C48C', '#38EF7D'];
-    if (percentage >= 50) return ['#FFA800', '#FFD000'];
-    return ['#FF4D4F', '#FF7875'];
+    if (percentage >= 65) return ['#00B34D', '#00B34D'];
+    if (percentage >= 49) return ['#FFCD43', '#FFCD43'];
+    return ['#FF4843', '#FF4843'];
   };
 
   const [startColor, endColor] = getGradientColors();
-  const textColor = percentage >= 70 ? 'text-[#00C48C]' : 
-                   percentage >= 50 ? 'text-[#FFA800]' : 
-                   'text-[#FF4D4F]';
+  const textColor = percentage >= 65 ? 'text-[#00B34D]' : 
+                   percentage >= 49 ? 'text-[#FFCD43]' : 
+                   'text-[#FF4843]';
 
   return (
     <div className="relative inline-flex items-center justify-center">

@@ -11,7 +11,6 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   size = 'md',
   showLabel = true,
 }) => {
-  // Dynamic size configurations with responsive values
   const sizeConfig = {
     sm: {
       dimensions: 'w-20 sm:w-24 h-20 sm:h-24',
@@ -44,17 +43,19 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   const progress = (score / 100) * circumference;
   const strokeDashoffset = circumference - progress;
 
-  // Color based on score
-  const getScoreColor = () => {
-    if (score >= 70) return 'stroke-[#00B34D]';
-    if (score >= 50) return 'stroke-[#FFA800]';
-    return 'stroke-[#FF4D4F]';
+  // Get gradient colors based on score
+  const getGradientColors = () => {
+    if (score >= 65) return ['#00B34D', '#00B34D'];
+    if (score >= 49) return ['#FFCD43', '#FFCD43'];
+    return ['#FF4843', '#FF4843'];
   };
 
+  const [startColor, endColor] = getGradientColors();
+
   const getTextColor = () => {
-    if (score >= 70) return 'text-[#00B34D]';
-    if (score >= 50) return 'text-[#FFA800]';
-    return 'text-[#FF4D4F]';
+    if (score >= 65) return 'text-[#00B34D]';
+    if (score >= 49) return 'text-[#FFCD43]';
+    return 'text-[#FF4843]';
   };
 
   return (
@@ -77,11 +78,18 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
           cy={config.viewBox / 2}
           r={config.radius}
           strokeWidth={config.strokeWidth}
-          className={`fill-none ${getScoreColor()} transition-all duration-300`}
+          className="fill-none stroke-[url(#progressGradient)]"
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
+          style={{ transition: 'stroke-dashoffset 0.5s ease-in-out' }}
         />
+        <defs>
+          <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor={startColor} />
+            <stop offset="100%" stopColor={endColor} />
+          </linearGradient>
+        </defs>
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center rotate-90">
         <span className={`${config.fontSize} font-semibold ${getTextColor()} transition-colors duration-300`}>

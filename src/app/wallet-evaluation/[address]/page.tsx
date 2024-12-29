@@ -126,15 +126,21 @@ export default function WalletEvaluation() {
 
           {/* Top Grid */}
           {/* Top Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-4 sm:gap-6 lg:gap-8 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4 sm:gap-6 lg:gap-8 mb-4">
+            {/* Wallet Details - Using order for mobile */}
+            <div className="order-1">
+              <WalletDetails wallet={walletData} />
+            </div>
+
             {/* Risk Score - Using order for mobile */}
-            <div className="order-2 lg:order-1 bg-white rounded-2xl p-4 sm:p-5 relative h-[200px] sm:h-[240px]">
-              <h2 className="text-[#666666] text-sm mb-2">Risk Score</h2>
+            <div className="order-2 bg-white rounded-2xl p-4 sm:p-5 relative h-[200px] sm:h-[240px]">
+              <h2 className="text-[#666666] text-[20px]">Risk Score</h2>
               <div className="flex justify-center">
                 <CircleProgress percentage={walletData.score} />
               </div>
               <div className="absolute -bottom-4 sm:-bottom-5 left-4 sm:left-5 right-4 sm:right-5 px-4 sm:px-8">
-                <div className="bg-[#00B34D] text-white py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 shadow-md">
+              <div className="bg-[#00B34D] text-white py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-lg  flex items-center justify-center gap-2 shadow-md">
+
                   <Image
                     src="/images/check-circle1.png"
                     width={20}
@@ -145,11 +151,6 @@ export default function WalletEvaluation() {
                   {walletData.status}
                 </div>
               </div>
-            </div>
-
-            {/* Wallet Details - Using order for mobile */}
-            <div className="order-1 lg:order-2 lg:h-full">
-              <WalletDetails wallet={walletData} />
             </div>
           </div>
 
