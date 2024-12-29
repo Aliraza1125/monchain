@@ -13,7 +13,7 @@ export const RiskBreakdown: React.FC<{ riskBars: RiskBarData[] }> = ({ riskBars 
   return (
     <div className="bg-white rounded-2xl p-4 sm:p-6">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 mb-4">
-        <h2 className="text-sm sm:text-base font-medium text-[#1A1A1A]">
+        <h2 className="text-sm sm:text-[20px] font-medium text-[#1A1A1A]">
           Risk Breakdown
         </h2>
         

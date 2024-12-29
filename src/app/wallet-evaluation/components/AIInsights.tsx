@@ -11,7 +11,7 @@ export const AIInsights: React.FC<AIInsightsProps> = ({
 }) => {
   return (
     <div className={`bg-white rounded-2xl p-4 sm:p-6 ${className}`}>
-      <h2 className="text-sm sm:text-base font-medium text-[#1A1A1A] mb-3 sm:mb-4">
+      <h2 className="text-sm sm:text-[20px] font-medium text-[#1A1A1A] mb-3 sm:mb-4">
         AI Insights
       </h2>
       

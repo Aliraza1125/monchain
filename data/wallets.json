@@ -1,184 +1,184 @@
 {
-    "wallets": [
-      {
-        "id": 1,
-        "address": "0xe9c69c...047de1d724",
-        "avatar": "/images/wallet-avatar.png",
-        "score": 69,
-        "status": "Profile Safe",
-        "lastSync": "01 Nov 2024, 3:12 AM UTC",
-        "timestamp": "05-05-2008 · 00:00:00",
-        "riskBars": [
-          {
-            "title": "Transaction Pattern",
-            "value": "2 (10%)",
-            "percentage": 10,
-            "color": "bg-[#00B34D]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "2 (10%)",
-            "percentage": 10,
-            "color": "bg-[#FF4D4F]"
-          },
-          {
-            "title": "Smart Contract Interactions",
-            "value": "2 (50%)",
-            "percentage": 50,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "2 (50%)",
-            "percentage": 50,
-            "color": "bg-[#00B34D]"
-          }
-        ],
-        "aiInsights": "Lorem ipsum is simply dummy text of the printing and typesetting industry..."
-      },
-      {
-        "id": 2,
-        "address": "0x7d8f3a...892ae3b851",
-        "avatar": "/images/wallet-avatar1.png",
-        "score": 85,
-        "status": "Profile Safe",
-        "lastSync": "02 Nov 2024, 4:15 PM UTC",
-        "timestamp": "06-05-2008 · 00:00:00",
-        "riskBars": [
-          {
-            "title": "Transaction Pattern",
-            "value": "1 (5%)",
-            "percentage": 5,
-            "color": "bg-[#00B34D]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "0 (0%)",
-            "percentage": 0,
-            "color": "bg-[#FF4D4F]"
-          },
-          {
-            "title": "Smart Contract Interactions",
-            "value": "3 (30%)",
-            "percentage": 30,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "1 (10%)",
-            "percentage": 10,
-            "color": "bg-[#00B34D]"
-          }
-        ],
-        "aiInsights": "This wallet shows consistent and safe transaction patterns with minimal risk indicators..."
-      },
-      {
-        "id": 3,
-        "address": "0x4b2e7d...c91fd4a362",
-        "avatar": "/images/wallet-avatar2.png",
-        "score": 45,
-        "status": "Medium Risk",
-        "lastSync": "03 Nov 2024, 1:30 PM UTC",
-        "timestamp": "07-05-2008 · 00:00:00",
-        "riskBars": [
-          {
-            "title": "Transaction Pattern",
-            "value": "5 (50%)",
-            "percentage": 50,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "4 (40%)",
-            "percentage": 40,
-            "color": "bg-[#FF4D4F]"
-          },
-          {
-            "title": "Smart Contract Interactions",
-            "value": "6 (60%)",
-            "percentage": 60,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "3 (30%)",
-            "percentage": 30,
-            "color": "bg-[#00B34D]"
-          }
-        ],
-        "aiInsights": "Multiple high-risk transactions detected. Recommend careful monitoring..."
-      },
-      {
-        "id": 4,
-        "address": "0x9a1c5b...734ef2d193",
-        "avatar": "/images/wallet-avatar3.png",
-        "score": 92,
-        "status": "Profile Safe",
-        "lastSync": "04 Nov 2024, 9:45 AM UTC",
-        "timestamp": "08-05-2008 · 00:00:00",
-        "riskBars": [
-          {
-            "title": "Transaction Pattern",
-            "value": "1 (5%)",
-            "percentage": 5,
-            "color": "bg-[#00B34D]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "0 (0%)",
-            "percentage": 0,
-            "color": "bg-[#FF4D4F]"
-          },
-          {
-            "title": "Smart Contract Interactions",
-            "value": "1 (10%)",
-            "percentage": 10,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "0 (0%)",
-            "percentage": 0,
-            "color": "bg-[#00B34D]"
-          }
-        ],
-        "aiInsights": "Excellent security practices observed. Low-risk profile with consistent patterns..."
-      },
-      {
-        "id": 5,
-        "address": "0x3f8e2d...156bc9a847",
-        "avatar": "/images/wallet-avatar.png",
-        "score": 78,
-        "status": "Profile Safe",
-        "lastSync": "05 Nov 2024, 11:20 AM UTC",
-        "timestamp": "09-05-2008 · 00:00:00",
-        "riskBars": [
-          {
-            "title": "Transaction Pattern",
-            "value": "2 (20%)",
-            "percentage": 20,
-            "color": "bg-[#00B34D]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "1 (10%)",
-            "percentage": 10,
-            "color": "bg-[#FF4D4F]"
-          },
-          {
-            "title": "Smart Contract Interactions",
-            "value": "3 (30%)",
-            "percentage": 30,
-            "color": "bg-[#FFA800]"
-          },
-          {
-            "title": "Known Fraudulent Links",
-            "value": "2 (20%)",
-            "percentage": 20,
-            "color": "bg-[#00B34D]"
-          }
-        ],
-        "aiInsights": "Generally safe profile with moderate smart contract interaction. Regular monitoring recommended..."
-      }
-    ]
-  }
+  "wallets": [
+    {
+      "id": 1,
+      "address": "0xe9c69c...047de1d724",
+      "avatar": "/images/wallet-avatar.png",
+      "score": 69,
+      "status": "Low Risk",
+      "lastSync": "01 Nov 2024, 3:12 AM UTC",
+      "timestamp": "05-05-2008 · 00:00:00",
+      "riskBars": [
+        {
+          "title": "Transaction Pattern",
+          "value": "2 (10%)",
+          "percentage": 10,
+          "color": "bg-[#00B34D]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "2 (10%)",
+          "percentage": 10,
+          "color": "bg-[#FF4843]"
+        },
+        {
+          "title": "Smart Contract Interactions",
+          "value": "2 (50%)",
+          "percentage": 50,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "2 (50%)",
+          "percentage": 50,
+          "color": "bg-[#00B34D]"
+        }
+      ],
+      "aiInsights": "Lorem ipsum is simply dummy text of the printing and typesetting industry..."
+    },
+    {
+      "id": 2,
+      "address": "0x7d8f3a...892ae3b851",
+      "avatar": "/images/wallet-avatar1.png",
+      "score": 85,
+      "status": "Low Risk",
+      "lastSync": "02 Nov 2024, 4:15 PM UTC",
+      "timestamp": "06-05-2008 · 00:00:00",
+      "riskBars": [
+        {
+          "title": "Transaction Pattern",
+          "value": "1 (5%)",
+          "percentage": 5,
+          "color": "bg-[#00B34D]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "0 (0%)",
+          "percentage": 0,
+          "color": "bg-[#FF4843]"
+        },
+        {
+          "title": "Smart Contract Interactions",
+          "value": "3 (30%)",
+          "percentage": 30,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "1 (10%)",
+          "percentage": 10,
+          "color": "bg-[#00B34D]"
+        }
+      ],
+      "aiInsights": "This wallet shows consistent and safe transaction patterns with minimal risk indicators..."
+    },
+    {
+      "id": 3,
+      "address": "0x4b2e7d...c91fd4a362",
+      "avatar": "/images/wallet-avatar2.png",
+      "score": 45,
+      "status": "High Risk",
+      "lastSync": "03 Nov 2024, 1:30 PM UTC",
+      "timestamp": "07-05-2008 · 00:00:00",
+      "riskBars": [
+        {
+          "title": "Transaction Pattern",
+          "value": "5 (50%)",
+          "percentage": 50,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "4 (40%)",
+          "percentage": 40,
+          "color": "bg-[#FF4843]"
+        },
+        {
+          "title": "Smart Contract Interactions",
+          "value": "6 (60%)",
+          "percentage": 60,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "3 (30%)",
+          "percentage": 30,
+          "color": "bg-[#00B34D]"
+        }
+      ],
+      "aiInsights": "Multiple high-risk transactions detected. Recommend careful monitoring..."
+    },
+    {
+      "id": 4,
+      "address": "0x9a1c5b...734ef2d193",
+      "avatar": "/images/wallet-avatar3.png",
+      "score": 92,
+      "status": "Low Risk",
+      "lastSync": "04 Nov 2024, 9:45 AM UTC",
+      "timestamp": "08-05-2008 · 00:00:00",
+      "riskBars": [
+        {
+          "title": "Transaction Pattern",
+          "value": "1 (5%)",
+          "percentage": 5,
+          "color": "bg-[#00B34D]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "0 (0%)",
+          "percentage": 0,
+          "color": "bg-[#FF4843]"
+        },
+        {
+          "title": "Smart Contract Interactions",
+          "value": "1 (10%)",
+          "percentage": 10,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "0 (0%)",
+          "percentage": 0,
+          "color": "bg-[#00B34D]"
+        }
+      ],
+      "aiInsights": "Excellent security practices observed. Low-risk profile with consistent patterns..."
+    },
+    {
+      "id": 5,
+      "address": "0x3f8e2d...156bc9a847",
+      "avatar": "/images/wallet-avatar.png",
+      "score": 78,
+      "status": "Low Risk",
+      "lastSync": "05 Nov 2024, 11:20 AM UTC",
+      "timestamp": "09-05-2008 · 00:00:00",
+      "riskBars": [
+        {
+          "title": "Transaction Pattern",
+          "value": "2 (20%)",
+          "percentage": 20,
+          "color": "bg-[#00B34D]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "1 (10%)",
+          "percentage": 10,
+          "color": "bg-[#FF4843]"
+        },
+        {
+          "title": "Smart Contract Interactions",
+          "value": "3 (30%)",
+          "percentage": 30,
+          "color": "bg-[#FFCD43]"
+        },
+        {
+          "title": "Known Fraudulent Links",
+          "value": "2 (20%)",
+          "percentage": 20,
+          "color": "bg-[#00B34D]"
+        }
+      ],
+      "aiInsights": "Generally safe profile with moderate smart contract interaction. Regular monitoring recommended..."
+    }
+  ]
+}
