@@ -11,6 +11,7 @@ interface InsightItem {
 
 interface AIInsightsProps {
   className?: string;
+  insights: string | InsightItem[]; // Update to accept string or array of InsightItem
 }
 
 export const AIInsights: React.FC<AIInsightsProps> = ({ className = '' }) => {

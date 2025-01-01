@@ -21,7 +21,7 @@ interface FraudReport {
   agreedToTerms: boolean;
 }
 
-export const ReportFraudPage: React.FC = () => {
+export default function ReportFraud() {
   const router = useRouter();
   const { wallet, isConnected } = useWeb3();
   const [report, setReport] = useState<FraudReport>({
@@ -44,8 +44,7 @@ export const ReportFraudPage: React.FC = () => {
   }, [isConnected, wallet]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    
+    const { name, value } = e.target;
     if (name === 'agreedToTerms') {
       setReport(prev => ({
         ...prev,
@@ -231,6 +230,4 @@ export const ReportFraudPage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default ReportFraudPage;
+}
