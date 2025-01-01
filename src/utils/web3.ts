@@ -1,4 +1,4 @@
-// src/config/web3.ts
+// src/utils/web3.ts
 import Onboard from '@web3-onboard/core'
 import injectedModule from '@web3-onboard/injected-wallets'
 
@@ -15,7 +15,7 @@ export const onboard = Onboard({
       rpcUrl: MAINNET_RPC_URL
     },
     {
-      id: '0xa4b1', // Hex format for Arbitrum One
+      id: '0xa4b1',
       token: 'ARB-ETH',
       label: 'Arbitrum One',
       rpcUrl: 'https://rpc.ankr.com/arbitrum'
@@ -39,13 +39,13 @@ export const onboard = Onboard({
       rpcUrl: 'https://1rpc.io/celo'
     },
     {
-      id: '0x28971353642', // Hex format for Degen
+      id: '0x28971353642',
       token: 'DEGEN',
       label: 'Degen',
       rpcUrl: 'https://rpc.degen.tips'
     },
     {
-      id: '0x890', // Hex format for SNAX Chain
+      id: '0x890',
       token: 'SNAXETH',
       label: 'SNAX Chain',
       rpcUrl: 'https://mainnet.snaxchain.io'

@@ -2,25 +2,33 @@
 import { useState, useCallback } from 'react'
 import { ethers } from 'ethers'
 import { onboard } from '@/utils/web3'
+import type { WalletState } from '@web3-onboard/core'
 
-type ConnectedWallet = {
+type ConnectedWallet = WalletState & {
   label: string
-  accounts: Array<{ address: string }>
-  provider: any
-  chains: Array<{ id: string }>
+  accounts: Array<{ address: string; balance: { type: string; asset: string; value: string } }>
+  chains: Array<{ id: string; label: string }>
 }
+
+type EthersProvider = ethers.BrowserProvider
+
+type WalletConnection = {
+  wallet: ConnectedWallet
+  provider: EthersProvider
+  signer: ethers.Signer
+} | null
 
 export const useWeb3 = () => {
   const [wallet, setWallet] = useState<ConnectedWallet | null>(null)
-  const [provider, setProvider] = useState<any>(null)
-  const [signer, setSigner] = useState<any>(null)
+  const [provider, setProvider] = useState<EthersProvider | null>(null)
+  const [signer, setSigner] = useState<ethers.Signer | null>(null)
 
-  const connectWallet = useCallback(async () => {
+  const connectWallet = useCallback(async (): Promise<WalletConnection> => {
     try {
       const wallets = await onboard.connectWallet()
       
       if (wallets[0]) {
-        const connectedWallet = wallets[0]
+        const connectedWallet = wallets[0] as ConnectedWallet
         setWallet(connectedWallet)
         
         console.log('Wallet connected:', connectedWallet)
@@ -44,16 +52,8 @@ export const useWeb3 = () => {
           balance: connectedWallet.accounts[0]?.balance
         })
         
-        let ethersProvider;
-        let ethersSigner;
-        
-        try {
-          ethersProvider = new ethers.BrowserProvider(wallets[0].provider)
-          ethersSigner = await ethersProvider.getSigner()
-        } catch (e) {
-          ethersProvider = new ethers.providers.Web3Provider(wallets[0].provider)
-          ethersSigner = ethersProvider.getSigner()
-        }
+        const ethersProvider = new ethers.BrowserProvider(connectedWallet.provider)
+        const ethersSigner = await ethersProvider.getSigner()
         
         setProvider(ethersProvider)
         setSigner(ethersSigner)
