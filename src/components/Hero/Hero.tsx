@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-5 py-8 sm:py-12 lg:py-32 flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-5 py-8 sm:py-12 lg:py-12 flex flex-col items-center text-center">
         <h1 className="text-[32px] sm:text-[44px] lg:text-7xl font-albayan font-semibold leading-tight text-black tracking-[-0.02em]">
           AI-Powered Security
           <span className="block text-[24px] sm:text-[32px] lg:text-6xl mt-2">
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
                               {wallet.status}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-500">Last sync: {wallet.lastSync}</p>
+                          <p className="text-xs text-start text-gray-500">Last sync: {wallet.lastSync}</p>
                         </div>
                       </li>
                     ))

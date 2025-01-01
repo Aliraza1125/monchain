@@ -43,14 +43,14 @@ export const WalletDetails: React.FC<{ wallet: WalletData }> = ({ wallet }) => {
           <div className="min-w-0 flex-1 space-y-2">
             <div className="flex items-center gap-2">
               <h2 
-                className="text-sm sm:text-[36px] font-medium text-[#1A1A1A] cursor-pointer hover:text-[#0066FF]  max-w-[180px] sm:max-w-[400px]"
+                className="text-sm sm:text-[36px] font-medium text-gray-900 cursor-pointer hover:text-primary max-w-[180px] sm:max-w-[400px]"
                 onClick={handleViewHistory}
               >
                 {wallet.address}
               </h2>
               
               <button 
-                className="hover:bg-[#F4F6FB] p-1.5 rounded-md transition-colors flex-shrink-0"
+                className="hover:bg-gray-100 p-1.5 rounded-md transition-colors flex-shrink-0"
                 onClick={copyToClipboard}
               >
                 <Image 
@@ -62,7 +62,7 @@ export const WalletDetails: React.FC<{ wallet: WalletData }> = ({ wallet }) => {
                 />
               </button>
             </div>
-            <p className="text-[10px] sm:text-lg text-[#666666]">
+            <p className="text-[10px] sm:text-lg text-gray-600">
               Last sync: {wallet.lastSync}
             </p>
           </div>
@@ -71,7 +71,7 @@ export const WalletDetails: React.FC<{ wallet: WalletData }> = ({ wallet }) => {
         {/* Right side buttons */}
         <div className="flex items-center gap-2 sm:gap-3">
           <button 
-            className="p-2 hover:bg-[#F4F6FB] rounded-md transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-md transition-colors"
             onClick={handleViewHistory}
           >
             <Image 
@@ -83,7 +83,7 @@ export const WalletDetails: React.FC<{ wallet: WalletData }> = ({ wallet }) => {
             />
           </button>
           <button 
-            className="bg-[#2F7BD3] text-white px-3 sm:px-[18px] py-2 sm:py-[15px] rounded-full text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 hover:bg-[#0052CC] transition-colors flex-shrink-0" 
+            className="bg-primary text-white px-3 sm:px-[18px] py-2 sm:py-[15px] rounded-full text-xs sm:text-sm flex items-center gap-1.5 sm:gap-2 hover:bg-primary-hover transition-colors flex-shrink-0" 
             onClick={handleExportReport}
           >
             <Image 
@@ -100,13 +100,13 @@ export const WalletDetails: React.FC<{ wallet: WalletData }> = ({ wallet }) => {
       </div>
       
       {/* Description */}
-      <p className="text-xs sm:text-[20px] text-[#666666] leading-5 sm:leading-6 mt-3 sm:mt-4">
+      <p className="text-xs sm:text-[20px] text-gray-600 leading-5 sm:leading-6 mt-3 sm:mt-4">
         {wallet.aiInsights}
       </p>
 
       {/* Report as fraudulent */}
       <div className="flex justify-end mt-3 sm:mt-4">
-        <button className="text-[#FF4D4F] flex items-center gap-1.5 text-xs sm:text-sm hover:opacity-80 transition-opacity">
+        <button className="text-status-error flex items-center gap-1.5 text-xs sm:text-sm hover:opacity-80 transition-opacity">
           <Image 
             src="/images/flag.png" 
             width={16} 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface HistoryRiskScoreProps {
   score: number;
   size?: 'sm' | 'md' | 'lg';
@@ -43,20 +41,23 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
   const progress = (score / 100) * circumference;
   const strokeDashoffset = circumference - progress;
 
-  // Get gradient colors based on score
-  const getGradientColors = () => {
-    if (score >= 65) return ['#00B34D', '#00B34D'];
-    if (score >= 49) return ['#FFCD43', '#FFCD43'];
-    return ['#FF4843', '#FF4843'];
+  // Get colors based on score
+  const getStatusColors = () => {
+    if (score >= 65) return {
+      color: 'status-success',
+      bgColor: 'rgba(0, 179, 77, 0.1)' // Light green background
+    };
+    if (score >= 49) return {
+      color: 'status-warning',
+      bgColor: 'rgba(255, 205, 67, 0.1)' // Light yellow background
+    };
+    return {
+      color: 'status-error',
+      bgColor: 'rgba(255, 72, 67, 0.1)' // Light red background
+    };
   };
 
-  const [startColor, endColor] = getGradientColors();
-
-  const getTextColor = () => {
-    if (score >= 65) return 'text-[#00B34D]';
-    if (score >= 49) return 'text-[#FFCD43]';
-    return 'text-[#FF4843]';
-  };
+  const { color, bgColor } = getStatusColors();
 
   return (
     <div className="relative inline-flex">
@@ -70,7 +71,8 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
           cy={config.viewBox / 2}
           r={config.radius}
           strokeWidth={config.strokeWidth}
-          className="fill-none stroke-[#E6F7F1]"
+          className="fill-none"
+          style={{ stroke: bgColor }}
         />
         {/* Progress circle */}
         <circle
@@ -78,25 +80,19 @@ export const HistoryRiskScore: React.FC<HistoryRiskScoreProps> = ({
           cy={config.viewBox / 2}
           r={config.radius}
           strokeWidth={config.strokeWidth}
-          className="fill-none stroke-[url(#progressGradient)]"
+          className={`fill-none stroke-${color}`}
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           style={{ transition: 'stroke-dashoffset 0.5s ease-in-out' }}
         />
-        <defs>
-          <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={startColor} />
-            <stop offset="100%" stopColor={endColor} />
-          </linearGradient>
-        </defs>
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center rotate-90">
-        <span className={`${config.fontSize} font-semibold ${getTextColor()} transition-colors duration-300`}>
+        <span className={`${config.fontSize} font-semibold text-${color} transition-colors duration-300`}>
           {score}
         </span>
         {showLabel && (
-          <span className={`${config.labelSize} text-[#666666] mt-0.5 sm:mt-1`}>
+          <span className={`${config.labelSize} text-gray-600 mt-0.5 sm:mt-1`}>
             Overall Score
           </span>
         )}

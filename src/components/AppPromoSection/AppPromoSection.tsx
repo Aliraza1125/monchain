@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const AppPromoSection: React.FC = () => {
   return (
-    <section className="py-8 sm:py-12 lg:py-16">
+    <section className="py-8 sm:py-12 lg:py-16 lg-mt-8">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-5">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Image Container */}

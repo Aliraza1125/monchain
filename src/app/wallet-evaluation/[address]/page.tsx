@@ -67,7 +67,7 @@ export default function WalletEvaluation() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#00B34D]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-status-success"></div>
       </div>
     );
   }
@@ -77,14 +77,13 @@ export default function WalletEvaluation() {
   }
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative">
       {/* Background Image */}
       <div
-        className="fixed top-0 left-0 w-full h-full bg-no-repeat hidden sm:block"
+        className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
           backgroundImage: `url('/bg-2.png')`,
-          backgroundSize: "100% auto",
-          backgroundPosition: "top center",
+          backgroundSize: '100% 100%',
           zIndex: -1,
         }}
       />
@@ -93,13 +92,13 @@ export default function WalletEvaluation() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-8 overflow-x-auto whitespace-nowrap pb-2">
-            <Link href="/" className="text-[#666666] hover:text-[#0066FF]">
+            <Link href="/" className="text-gray-600 hover:text-primary">
               Home
             </Link>
-            <span className="text-[#666666]">/</span>
-            <span className="text-[#666666]">Wallet Evaluation Result</span>
-            <span className="text-[#666666]">/</span>
-            <span className="text-[#666666] truncate max-w-[150px] sm:max-w-none">
+            <span className="text-gray-600">/</span>
+            <span className="text-gray-600">Wallet Evaluation Result</span>
+            <span className="text-gray-600">/</span>
+            <span className="text-gray-600 truncate max-w-[150px] sm:max-w-none">
               {walletData.address}
             </span>
           </div>
@@ -119,12 +118,11 @@ export default function WalletEvaluation() {
               type="text"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
-              className="w-full h-10 sm:h-12 pl-10 sm:pl-12 pr-4 rounded-lg border border-[#E5E5E5] bg-white text-sm sm:text-base"
+              className="w-full h-10 sm:h-12 pl-10 sm:pl-12 pr-4 rounded-lg border border-gray-200 bg-white text-sm sm:text-base"
               placeholder="Enter wallet address..."
             />
           </form>
 
-          {/* Top Grid */}
           {/* Top Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-4 sm:gap-6 lg:gap-8 mb-4">
             {/* Wallet Details - Using order for mobile */}
@@ -134,13 +132,12 @@ export default function WalletEvaluation() {
 
             {/* Risk Score - Using order for mobile */}
             <div className="order-2 bg-white rounded-2xl p-4 sm:p-5 relative h-[200px] sm:h-[240px]">
-              <h2 className="text-[#666666] text-[20px]">Risk Score</h2>
+              <h2 className="text-gray-600 text-[20px]">Risk Score</h2>
               <div className="flex justify-center">
                 <CircleProgress percentage={walletData.score} />
               </div>
               <div className="absolute -bottom-4 sm:-bottom-5 left-4 sm:left-5 right-4 sm:right-5 px-4 sm:px-8">
-              <div className="bg-[#00B34D] text-white py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-lg  flex items-center justify-center gap-2 shadow-md">
-
+                <div className="bg-status-success text-white py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg text-xs sm:text-lg flex items-center justify-center gap-2 shadow-md">
                   <Image
                     src="/images/check-circle1.png"
                     width={20}

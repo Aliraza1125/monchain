@@ -1,14 +1,26 @@
-// components/Footer.tsx
+import Image from 'next/image';
+import Link from 'next/link';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-r from-[#F4F6FB] to-[#F2F3FD] py-8">
+    <footer className="py-8">
       <div className="max-w-[1440px] mx-auto px-12">
         <div className="grid grid-cols-4 gap-8 mb-12">
           {/* Column 1 */}
           <div>
-            <h3 className="text-lg font-semibold text-[#1A1A1A] mb-4">Monchain</h3>
+            <div className="mb-4">
+              <Link href="/">
+                <Image 
+                  src="/png-2-trimmed.png"
+                  alt="Monchain Logo"
+                  width={200}
+                  height={40}
+                  className="h-auto"
+                />
+              </Link>
+            </div>
             <p className="text-sm text-[#666666]">
               AI-Powered Security for Your Crypto Assets
             </p>

@@ -9,7 +9,7 @@ export interface RiskBar {
   title: string;
   value: string;
   percentage: number;
-  color: "bg-[#FF4D4F]" | "bg-[#00B34D]" | "bg-[#FFA800]";
+  color: "bg-status-error" | "bg-status-success" | "bg-status-warning";
 }
 
 interface Wallet {
@@ -54,14 +54,12 @@ export default function WalletEvaluationHistory() {
           className="fixed top-0 left-0 w-full h-full bg-no-repeat"
           style={{
             backgroundImage: `url('/bg-3.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            opacity: '0.8',
+            backgroundSize: '100% 100%',
             zIndex: -1,
           }}
         />
         <div className="flex items-center justify-center min-h-screen">
-          <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-t-2 border-b-2 border-[#00B34D]"></div>
+          <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-t-2 border-b-2 border-status-success"></div>
         </div>
       </div>
     );
@@ -74,13 +72,11 @@ export default function WalletEvaluationHistory() {
           className="fixed top-0 left-0 w-full h-full bg-no-repeat"
           style={{
             backgroundImage: `url('/bg-3.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            opacity: '0.8',
+            backgroundSize: '100% 100%',
             zIndex: -1,
           }}
         />
-        <div className="flex items-center justify-center min-h-screen text-red-500 px-4 text-center">
+        <div className="flex items-center justify-center min-h-screen text-status-error px-4 text-center">
           {error}
         </div>
       </div>
@@ -94,9 +90,7 @@ export default function WalletEvaluationHistory() {
         className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
           backgroundImage: `url('/bg-3.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          opacity: '0.8',
+          backgroundSize: '100% 100%',
           zIndex: -1,
         }}
       />
@@ -105,11 +99,11 @@ export default function WalletEvaluationHistory() {
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 py-4 sm:py-6 lg:py-8">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-8 overflow-x-auto whitespace-nowrap pb-2">
-          <Link href="/" className="text-[#666666] hover:text-[#0066FF]">
+          <Link href="/" className="text-gray-600 hover:text-primary">
             Home
           </Link>
-          <span className="text-[#666666]">/</span>
-          <span className="text-[#666666]">Wallet Evaluation History</span>
+          <span className="text-gray-600">/</span>
+          <span className="text-gray-600">Wallet Evaluation History</span>
         </div>
 
         {/* Search Section */}
@@ -121,19 +115,19 @@ export default function WalletEvaluationHistory() {
                 width={20} 
                 height={20} 
                 alt="Search"
-                className="w-4 h-4 sm:w-5 sm:h-5" 
+                className="w-4 h-4 sm:w-5 sm:h-5 opacity-60" 
               />
             </div>
             <input
               type="text"
-              className="w-full h-10 sm:h-12 pl-10 sm:pl-12 pr-4 rounded-lg border border-[#E5E5E5] bg-white text-sm sm:text-base"
+              className="w-full h-10 sm:h-12 pl-10 sm:pl-12 pr-4 rounded-lg border border-gray-200 bg-white text-sm sm:text-base text-gray-900 placeholder:text-gray-600 focus:border-primary focus:outline-none"
               placeholder="Enter wallet address..."
             />
           </div>
           <div className="flex justify-end">
             <div className="relative inline-block w-full sm:w-auto">
               <select
-                className="w-full sm:w-auto h-10 pl-4 pr-10 rounded-lg border border-[#E5E5E5] bg-white text-xs sm:text-sm text-[#666666] appearance-none cursor-pointer"
+                className="w-full sm:w-auto h-10 pl-4 pr-10 rounded-lg border border-gray-200 bg-white text-xs sm:text-sm text-gray-600 appearance-none cursor-pointer focus:border-primary focus:outline-none"
               >
                 <option>Sort by Date</option>
                 <option>Newest First</option>
@@ -145,7 +139,7 @@ export default function WalletEvaluationHistory() {
                   width={12} 
                   height={12} 
                   alt="Sort"
-                  className="w-3 h-3" 
+                  className="w-3 h-3 opacity-60" 
                 />
               </div>
             </div>

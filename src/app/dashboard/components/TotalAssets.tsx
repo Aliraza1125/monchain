@@ -41,7 +41,7 @@ export const TotalAssets = () => {
       {/* Total Assets Card with Graph Background */}
       <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full">
     
-        <div className="bg-[#1A1A1A] rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 mb-4 sm:mb-6 relative overflow-hidden">
+        <div className="bg-gray-900 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 mb-4 sm:mb-6 relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-white text-xs sm:text-sm font-medium mb-1 sm:mb-2">Total Assets</h2>
             <div className="flex items-baseline gap-2">
@@ -75,13 +75,13 @@ export const TotalAssets = () => {
                   className="rounded-full w-7 h-7 sm:w-8 sm:h-8"
                 />
                 <div>
-                  <p className="text-xs sm:text-sm text-[#1A1A1A]">{wallet.name}</p>
-                  <p className="text-[10px] sm:text-xs text-[#666666]">{wallet.address}</p>
+                  <p className="text-xs sm:text-sm text-gray-900">{wallet.name}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-600">{wallet.address}</p>
                 </div>
               </div>
               <div className="text-[10px] sm:text-xs">
-                <span className="text-[#00B34D]">{wallet.value}</span>
-                <span className="text-[#666666] ml-1">· {wallet.count}</span>
+                <span className="text-status-success">{wallet.value}</span>
+                <span className="text-gray-600 ml-1">· {wallet.count}</span>
               </div>
             </div>
           ))}

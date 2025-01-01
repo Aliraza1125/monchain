@@ -20,10 +20,8 @@ export default function PrivacyPolicyPage() {
       <div 
         className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
-          backgroundImage: `url('/bg-11.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          opacity: '0.8',
+          backgroundImage: `url('/bg-9.png')`,
+          backgroundSize: '100% 100%',
           zIndex: -1,
         }}
       />
@@ -79,7 +77,7 @@ export default function PrivacyPolicyPage() {
         {/* Desktop Layout */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Sidebar Navigation - Desktop */}
-          <aside className="hidden lg:block w-64 shrink-0">
+          <aside className="hidden lg:block w-64 shrink-0 bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6">
             <div className="sticky top-8">
               <h2 className="font-semibold mb-4 text-[#1A1A1A]">Privacy Policy</h2>
               <nav className="flex flex-col gap-3">
@@ -97,7 +95,7 @@ export default function PrivacyPolicyPage() {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 bg-white rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6">
+          <main className="flex-1  sm:rounded-2xl shadow-sm p-4 sm:p-6">
             <section id="overview" className="mb-8 sm:mb-12">
               <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[#1A1A1A]">
                 Overview

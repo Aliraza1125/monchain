@@ -1,6 +1,5 @@
-// app/profile/page.tsx
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -19,6 +18,8 @@ export default function Profile() {
     phoneNumber: "",
   });
 
+  const [profileImage, setProfileImage] = useState("/images/profile-avatar.png");
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [isPasswordChangeOpen, setIsPasswordChangeOpen] = useState(false);
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
@@ -46,6 +47,38 @@ export default function Profile() {
     },
   ];
 
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Check if file is an image
+      if (!file.type.startsWith('image/')) {
+        alert('Please upload an image file');
+        return;
+      }
+      
+      // Check file size (e.g., max 5MB)
+      const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+      if (file.size > maxSize) {
+        alert('File is too large. Please upload an image smaller than 5MB');
+        return;
+      }
+
+      const imageUrl = URL.createObjectURL(file);
+      setProfileImage(imageUrl);
+    }
+  };
+
+  const handleImageDelete = () => {
+    setProfileImage("/images/profile-avatar.png");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setProfileData((prev) => ({
@@ -65,103 +98,110 @@ export default function Profile() {
   const handleSaveChanges = () => {
     console.log("Profile data:", profileData);
   };
+
+  const inputClasses = "w-full px-4 py-2.5 rounded-lg border border-gray-200 text-gray-900 focus:outline-none focus:border-primary";
+  const inputWithIconClasses = "w-full pl-12 pr-4 py-2.5 rounded-lg border border-gray-200 text-gray-900 focus:outline-none focus:border-primary";
+
   return (
     <div className="relative min-h-screen">
-      {/* Background Image */}
       <div 
         className="fixed top-0 left-0 w-full h-full bg-no-repeat"
         style={{
           backgroundImage: `url('/bg-4.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          opacity: '0.8',
+          backgroundSize: '100% 100%',
           zIndex: -1,
         }}
       />
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm mb-4 sm:mb-8 overflow-x-auto whitespace-nowrap pb-2">
-          <Link href="/" className="text-[#666666] hover:text-[#0066FF]">
+        <div className="flex items-center gap-2 text-xs sm:text-xl mb-4 sm:mb-8 overflow-x-auto whitespace-nowrap pb-2">
+          <Link href="/" className="text-gray-600 hover:text-primary">
             Home
           </Link>
-          <span className="text-[#666666]">/</span>
-          <span className="text-[#666666]">Profile</span>
+          <span className="text-gray-600">/</span>
+          <span className="text-gray-600">Profile</span>
         </div>
 
-        {/* Profile Cards */}
         <div className="space-y-4 sm:space-y-8">
-          {/* Profile Header */}
           <div className="bg-white rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 sm:justify-between">
             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
               <div className="relative w-20 h-20 sm:w-24 sm:h-24">
                 <Image
-                  src="/images/profile-avatar.png"
+                  src={profileImage}
                   alt="Profile"
                   fill
                   className="rounded-full object-cover"
                 />
               </div>
               <div>
-                <h2 className="font-medium text-[#1A1A1A]">Alex Mohamed</h2>
-                <p className="text-sm text-[#666666]">Lorem ipsum</p>
-                <p className="text-xs text-[#666666]">Last sync: 01 Nov 2024, 3:12 AM UTC</p>
+                <h2 className="font-medium text-gray-900">Alex Mohamed</h2>
+                <p className="text-sm text-gray-600">Lorem ipsum</p>
+                <p className="text-xs text-gray-600">Last sync: 01 Nov 2024, 3:12 AM UTC</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
-              <button className="px-4 py-2.5 text-sm text-white bg-[#2F7BD3] hover:bg-[#0052CC] rounded-full transition-colors w-full sm:w-auto">
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                accept="image/*"
+                className="hidden"
+              />
+              <button 
+                onClick={handleUploadClick}
+                className="px-4 py-2.5 text-sm text-white bg-primary hover:bg-primary-hover rounded-full transition-colors w-full sm:w-auto"
+              >
                 Upload New Photo
               </button>
-              <button className="px-6 py-2 text-sm text-[#2F7BD3] hover:bg-red-50 rounded-full border transition-colors w-full sm:w-auto">
+              <button 
+                onClick={handleImageDelete}
+                className="px-6 py-2 text-sm text-primary hover:bg-red-50 rounded-full border border-primary transition-colors w-full sm:w-auto"
+              >
                 Delete
               </button>
             </div>
           </div>
 
-          {/* Profile Form */}
           <div className="bg-white rounded-xl p-4 sm:p-6">
-            {/* Name Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">First Name</label>
+                <label className="block text-sm text-gray-600 mb-2 ml-4">First Name</label>
                 <input
                   type="text"
                   name="firstName"
                   placeholder="eg. John"
-                  className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                  className={inputClasses}
                   value={profileData.firstName}
                   onChange={handleInputChange}
                 />
               </div>
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">Last Name</label>
+                <label className="block text-sm text-gray-600 mb-2 ml-4">Last Name</label>
                 <input
                   type="text"
                   name="lastName"
                   placeholder="eg. Doe"
-                  className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                  className={inputClasses}
                   value={profileData.lastName}
                   onChange={handleInputChange}
                 />
               </div>
             </div>
 
-            {/* Username Field */}
             <div className="mb-6">
-              <label className="block text-sm text-[#666666] mb-2 ml-4">User Name</label>
+              <label className="block text-sm text-gray-600 mb-2 ml-4">User Name</label>
               <input
                 type="text"
                 name="userName"
                 placeholder="eg. John Doe"
-                className="w-full px-4 py-2.5 rounded-lg border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                className={inputClasses}
                 value={profileData.userName}
                 onChange={handleInputChange}
               />
             </div>
 
-            {/* Email and Phone Fields */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">Email Address</label>
+                <label className="block text-sm text-gray-600 mb-2 ml-4">Email Address</label>
                 <div className="relative">
                   <Image
                     src="/images/email-icon.png"
@@ -173,14 +213,14 @@ export default function Profile() {
                   <input
                     type="email"
                     name="email"
-                    className="w-full pl-12 pr-4 py-2.5 rounded-lg border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                    className={inputWithIconClasses}
                     value={profileData.email}
                     onChange={handleInputChange}
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm text-[#666666] mb-2 ml-4">Phone Number</label>
+                <label className="block text-sm text-gray-600 mb-2 ml-4">Phone Number</label>
                 <div className="relative">
                   <Image
                     src="/images/phone-icon.png"
@@ -192,7 +232,7 @@ export default function Profile() {
                   <input
                     type="tel"
                     name="phoneNumber"
-                    className="w-full pl-12 pr-4 py-2.5 rounded-lg border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                    className={inputWithIconClasses}
                     value={profileData.phoneNumber}
                     onChange={handleInputChange}
                   />
@@ -200,15 +240,14 @@ export default function Profile() {
               </div>
             </div>
 
-            {/* Social Accounts */}
             <div className="mb-6">
-              <label className="block text-base text-[#2c2020] mb-4">Social Accounts</label>
+              <label className="block text-base text-gray-900 mb-4">Social Accounts</label>
               <div className="space-y-4 sm:space-y-6">
-                <div className="flex flex-wrap gap-2 sm:gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-8">
                   {socialAccounts.map((account) => (
                     <div
                       key={account.platform}
-                      className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl border bg-[#F4F6FB] cursor-pointer hover:bg-[#F8F9FB] transition-colors"
+                      className="flex items-center gap-2 px-3 sm:px-8 py-2 rounded-xl border bg-gray-50 cursor-pointer hover:bg-gray-100 transition-colors"
                     >
                       <Image
                         src={account.icon}
@@ -217,12 +256,12 @@ export default function Profile() {
                         alt={account.platform}
                         className="w-4 h-4 sm:w-5 sm:h-5"
                       />
-                      <span className="text-sm sm:text-base text-[#666666]">{account.username}</span>
+                      <span className="text-sm sm:text-base text-gray-600">{account.username}</span>
                     </div>
                   ))}
                 </div>
 
-                <button className="inline-flex items-center px-4 py-2.5 text-sm text-white bg-[#0066FF] hover:bg-[#0052CC] rounded-xl transition-colors">
+                <button className="inline-flex items-center px-4 py-2.5 text-sm text-white bg-primary hover:bg-primary-hover rounded-xl transition-colors">
                   <span className="mr-2">+</span>
                   Connect Account
                 </button>
@@ -230,15 +269,13 @@ export default function Profile() {
             </div>
           </div>
 
-          {/* Change Password Section */}
           <div className="bg-white rounded-xl px-4 sm:px-8 py-1">
-            {/* Password Change Header */}
             <div
               className="p-4 flex items-center justify-between cursor-pointer"
               onClick={() => setIsPasswordChangeOpen(!isPasswordChangeOpen)}
             >
               <div>
-                <h3 className="text-base sm:text-lg font-medium text-[#1A1A1A]">Change Password</h3>
+                <h3 className="text-base sm:text-lg font-medium text-gray-900">Change Password</h3>
               </div>
               <Image
                 src="/images/downarrow.svg"
@@ -251,13 +288,11 @@ export default function Profile() {
               />
             </div>
 
-            {/* Password Change Form */}
             {isPasswordChangeOpen && (
-              <div className="px-4 py-6 space-y-4 sm:space-y-6 border-t border-[#E5E5E5]">
+              <div className="px-4 py-6 space-y-4 sm:space-y-6 border-t border-gray-200">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  {/* Current Password */}
                   <div>
-                    <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                    <label className="block text-sm sm:text-base font-medium text-gray-900 mb-2 ml-4">
                       Current Password
                     </label>
                     <div className="relative">
@@ -271,16 +306,15 @@ export default function Profile() {
                       <input
                         type="password"
                         name="currentPassword"
-                        className="w-full pl-12 pr-4 py-2.5 rounded-xl border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF]"
+                        className={inputWithIconClasses}
                         value={passwordData.currentPassword}
                         onChange={handlePasswordChange}
                       />
                     </div>
                   </div>
 
-                  {/* New Password */}
                   <div>
-                    <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                    <label className="block text-sm sm:text-base font-medium text-gray-900 mb-2 ml-4">
                       New Password
                     </label>
                     <div className="relative">
@@ -294,7 +328,7 @@ export default function Profile() {
                       <input
                         type="password"
                         name="newPassword"
-                        className="w-full pl-12 pr-4 py-2.5 rounded-xl border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF] bg-white"
+                        className={inputWithIconClasses}
                         value={passwordData.newPassword}
                         onChange={handlePasswordChange}
                       />
@@ -302,9 +336,8 @@ export default function Profile() {
                   </div>
                 </div>
 
-                {/* Confirm New Password */}
                 <div>
-                  <label className="block text-sm sm:text-base font-medium text-[#1A1A1A] mb-2 ml-4">
+                  <label className="block text-sm sm:text-base font-medium text-gray-900 mb-2 ml-4">
                     Confirm New Password
                   </label>
                   <div className="relative">
@@ -318,7 +351,7 @@ export default function Profile() {
                     <input
                       type="password"
                       name="confirmPassword"
-                      className="w-full pl-12 pr-4 py-2.5 rounded-xl border border-[#E5E5E5] focus:outline-none focus:border-[#0066FF] bg-white"
+                      className={inputWithIconClasses}
                       value={passwordData.confirmPassword}
                       onChange={handlePasswordChange}
                     />
@@ -328,14 +361,13 @@ export default function Profile() {
             )}
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row sm:justify-end gap-3 sm:gap-8">
-            <button className="px-6 py-2.5 text-[#0066FF] hover:bg-[#F4F6FB] rounded-full border border-[#0052CC] transition-colors w-full sm:w-auto order-2 sm:order-1">
+            <button className="px-6 py-2.5 text-primary hover:bg-gray-50 rounded-full border border-primary transition-colors w-full sm:w-auto order-2 sm:order-1">
               Cancel
             </button>
             <button
               onClick={handleSaveChanges}
-              className="px-8 py-2.5 bg-[#0066FF] text-white rounded-full hover:bg-[#0052CC] transition-colors w-full sm:w-auto order-1 sm:order-2"
+              className="px-8 py-2.5 bg-primary text-white rounded-full hover:bg-primary-hover transition-colors w-full sm:w-auto order-1 sm:order-2"
             >
               Save Changes
             </button>

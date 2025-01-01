@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #2F7AD3;
+  --primary-hover: #2362B0;  /* Slightly darker for hover states */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -14,8 +16,53 @@
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Global input and textarea styles */
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea {
+    @apply text-[#1A1A1A] caret-[#1A1A1A];
+  }
+
+  /* Global placeholder styles */
+  input:not([type="checkbox"]):not([type="radio"])::placeholder,
+  textarea::placeholder {
+    @apply text-[#666666];
+  }
+
+  /* Optional: Add focus styles */
+  input:not([type="checkbox"]):not([type="radio"]):focus,
+  textarea:focus {
+    @apply outline-none border-[#2F7AD3] ring-1 ring-[#2F7AD3];
+  }
+
+  /* Exclude specific input types if needed */
+  input[type="color"],
+  input[type="range"] {
+    @apply border-none outline-none;
+  }
+}
+
+/* Common component styles */
+@layer components {
+  .input-base {
+    @apply w-full px-4 py-2 border border-gray-200 rounded-xl;
+    @apply focus:outline-none focus:border-[#2F7AD3] focus:ring-1 focus:ring-[#2F7AD3];
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-[#2F7AD3] text-white px-4 py-2 rounded-full;
+    @apply hover:bg-[#2362B0] transition-colors;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .link-primary {
+    @apply text-[#2F7AD3] hover:text-[#2362B0] transition-colors;
+  }
 }
